@@ -25,7 +25,7 @@ on:
        default: solutions/
 env:
 #edit your values here
-  ENVIRONMENT_URL: '<ENVIRONMENTURL>'
+  ENVIRONMENT_URL: 'https://make.powerapps.com/e/Default-1f92a560-2ff6-49ab-bd99-a3fcedaade77/canvas/?action=edit&app-id=%2Fproviders%2FMicrosoft.PowerApps%2Fapps%2Fecee641e-798f-4d2a-8092-b6c87e2492fa&utm_source=office&utm_medium=app_launcher&utm_campaign=office_referrals'
   CLIENT_ID: '<APPID>'
   TENANT_ID: '<TENANT ID>'
 permissions:
@@ -45,7 +45,7 @@ jobs:
     - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
-        environment-url: ${https://make.powerapps.com/e/Default-1f92a560-2ff6-49ab-bd99-a3fcedaade77/canvas/?action=edit&app-id=%2Fproviders%2FMicrosoft.PowerApps%2Fapps%2Fecee641e-798f-4d2a-8092-b6c87e2492fa&utm_source=office&utm_medium=app_launcher&utm_campaign=office_referrals}
+        environment-url: ${{env.ENVIRONMENT_URL}}
         app-id: ${{env.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
@@ -54,7 +54,7 @@ jobs:
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: ${https://make.powerapps.com/e/Default-1f92a560-2ff6-49ab-bd99-a3fcedaade77/canvas/?action=edit&app-id=%2Fproviders%2FMicrosoft.PowerApps%2Fapps%2Fecee641e-798f-4d2a-8092-b6c87e2492fa&utm_source=office&utm_medium=app_launcher&utm_campaign=office_referrals}
+        environment-url: ${{env.ENVIRONMENT_URL}}
         app-id: ${{env.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
